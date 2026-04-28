@@ -25,7 +25,7 @@ on:
 
 jobs:
   download-and-save:
-    runs-on: [self-hosted, linux, x64]
+    runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     permissions:
