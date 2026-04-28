@@ -38,13 +38,13 @@ jobs:
 
       - name: Fast Install Dependencies
         run: |
-          apt-get update -qq
-          apt-get install -y --no-install-recommends aria2 ffmpeg
+          echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S apt-get update -qq
+          echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S apt-get install -y --no-install-recommends aria2 ffmpeg
           
-          curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
-          chmod a+rx /usr/local/bin/yt-dlp
+          echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+          echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S chmod a+rx /usr/local/bin/yt-dlp
           
-          curl -fsSL https://bun.com/install | bash
+          echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S curl -fsSL https://bun.com/install | bash
           echo "$HOME/.bun/bin" >> $GITHUB_PATH
 
       - name: Setup YouTube Cookies 
