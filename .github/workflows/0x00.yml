@@ -35,11 +35,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-          sparse-checkout: |
-            README.md
-            Links.md
-            LICENSE
-            .github/workflows/0x00.yml
 
       - name: Fast Install Dependencies
         run: |
