@@ -103,7 +103,11 @@ jobs:
                   with open(filepath, "wb") as f:
                       for c in resp.iter_content(8192): f.write(c) if c else None
           EOF
-
+          
+      - name: Clear Existing files
+        run: |
+          rm -rf dl/*
+          
       - name: Download & Process Files (Supports Multiple URLs)
         shell: bash
         run: |
