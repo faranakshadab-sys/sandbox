@@ -2,6 +2,12 @@
 > Click on any link below to start downloading directly.<br><br/>
 
 
+### 📅 2026-05-04 01:44 IR
+- 📥 [codelldb-win32-x64.vsix](https://github.com/faranakshadab-sys/sandbox/raw/main/dl/codelldb-win32-x64.vsix) `48.5MB`
+
+---
+
+
 ### 📅 2026-05-04 00:49 IR
 - 🎬 [I Bought the Tech House and it Has a PROBLEM….mp4](https://github.com/faranakshadab-sys/sandbox/raw/main/dl/I%20Bought%20the%20Tech%20House%20and%20it%20Has%20a%20PROBLEM%E2%80%A6.mp4) `90.7MB`
 
