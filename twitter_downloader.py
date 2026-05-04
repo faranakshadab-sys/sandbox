@@ -110,7 +110,7 @@ def main():
     # Write/overwrite the output file
     old_content = OUTPUT_FILE.read_text()
     OUTPUT_FILE.write_text(
-        f'{old_content},{"\n".join(lines)}', encoding="utf-8")
+        f'{old_content},{",".join(lines)}', encoding="utf-8")
 
     print(f"\n[INFO] Saved {len(lines)} link(s) to {OUTPUT_FILE}")
 
