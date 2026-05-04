@@ -1,0 +1,48 @@
+name: Fetch Twitter video links
+
+on:
+  workflow_dispatch:
+    inputes:
+      url:
+        description: "Target URLs (Separate with space, comma, or new line)"
+        required: true
+        type: string
+
+jobs:
+  fetch-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        # Optional: if using requirements.txt
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Install yt-dlp (if not in requirements)
+        if: success() && steps.install-dependencies.outcome == 'skipped'
+        run: |
+          pip install yt-dlp
+
+      - name: Run script
+        run: |
+          for URL in $FORMATTED_URLS; do
+            echo "==========================================="
+            echo "Processing URL: $URL"
+            echo "==========================================="
+            python get_twitter_video_links.py \
+              "$URL" 
+
+      - name: Push to Repository
+        run: |
+          BRANCH="${GITHUB_REF_NAME}"
+          git config user.name "NET-Sentinel Bot"
+          git config user.email "224584266+NetSentinel-Bot@users.noreply.github.com"
+          git add twitter_download_links.txt
+          git commit -m "Add Twitter Links"
+          git push origin HEAD:$BRANCH
