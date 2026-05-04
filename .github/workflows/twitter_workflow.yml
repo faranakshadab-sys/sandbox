@@ -2,7 +2,7 @@ name: Fetch Twitter video links
 
 on:
   workflow_dispatch:
-    inputes:
+    inputs:
       url:
         description: "Target URLs (Separate with space, comma, or new line)"
         required: true
@@ -31,11 +31,13 @@ jobs:
 
       - name: Run script
         run: |
+          RAW_URLS="${{ github.event.inputs.url }}"
+          FORMATTED_URLS=$(echo "$RAW_URLS" | tr ',' ' ' | tr '\n' ' ')
           for URL in $FORMATTED_URLS; do
             echo "==========================================="
             echo "Processing URL: $URL"
             echo "==========================================="
-            python get_twitter_video_links.py \
+            python twitter_downloader.py \
               "$URL" 
 
       - name: Push to Repository
