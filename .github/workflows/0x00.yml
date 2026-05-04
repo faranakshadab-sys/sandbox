@@ -142,7 +142,7 @@ jobs:
               echo "Downloading from Bunkr..."
               python3 bunkr.py "$URL" "tmp_downloads"
               
-            elif echo "$URL" | grep -qE "(youtube\.com|youtu\.be|twitch\.tv|reddit\.com|vimeo|soundcloud)"; then
+            elif echo "$URL" | grep -qE "(youtube\.com|youtu\.be|twitch\.tv|reddit\.com|vimeo|soundcloud|twitter\.com|x\.com)"; then
               echo "Downloading with yt-dlp..."
               COOKIE_ARG=""
               [ -s youtube_cookies.txt ] && COOKIE_ARG="--cookies youtube_cookies.txt"
