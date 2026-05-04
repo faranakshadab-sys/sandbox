@@ -39,6 +39,7 @@ jobs:
             echo "==========================================="
             python twitter_downloader.py \
               "$URL" 
+           done
 
       - name: Push to Repository
         run: |
